@@ -1,1 +1,1 @@
-app: bin/hubot -a irc -n mongobot
+mongobot: bin/hubot -a irc -n mongobot
