@@ -63,7 +63,8 @@ module.exports = (robot) ->
     unless robot.name.toLowerCase() is 'hubot'
       emit = emit.replace /hubot/ig, robot.name
 
-    msg.send emit
+    msg.message.user.room = null
+    msg.send msg.message.user.name, emit
 
   robot.router.get '/hubot/help', (req, res) ->
     cmds = robot.helpCommands()
