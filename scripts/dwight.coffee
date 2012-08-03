@@ -10,14 +10,14 @@
 
 module.exports = (robot) ->
 
-  robot.hear /eliot/i, (msg)->
-    askChuck msg, "http://api.icndb.com/jokes/random?firstName=Eliot&lastName=Horowitz&limitTo=[nerdy]"
+  robot.hear /dwight/i, (msg)->
+    askChuck msg, "http://api.icndb.com/jokes/random?firstName=Dwight&lastName=Merriman&limitTo=[nerdy]"
 
   askChuck = (msg, url) ->
     msg.http(url)
       .get() (err, res, body) ->
         if err
-          msg.send "Eliot says: #{err}"
+          msg.send "Dwight Says: #{err}"
         else
           message_from_chuck = JSON.parse(body)
           if message_from_chuck.length == 0
