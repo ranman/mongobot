@@ -1,5 +1,5 @@
 # Description:
-#   Eliot awesomeness
+#   Dwight awesomeness
 #
 # Dependencies:
 #   None
@@ -11,7 +11,7 @@
 module.exports = (robot) ->
 
   robot.hear /dwight/i, (msg)->
-    askChuck msg, "http://api.icndb.com/jokes/random?firstName=Dwight&lastName=Merriman&limitTo=[nerdy]"
+    askChuck msg, "http://api.icndb.com/jokes/random?firstName=Dwight&lastName=Merriman&limitTo=[nerdy,bruce schneier]"
 
   askChuck = (msg, url) ->
     msg.http(url)
@@ -21,6 +21,6 @@ module.exports = (robot) ->
         else
           message_from_chuck = JSON.parse(body)
           if message_from_chuck.length == 0
-            msg.send "Achievement unlocked: Eliot is quiet!"
+            msg.send "Achievement unlocked: Dwight is quiet!"
           else
             msg.send message_from_chuck.value.joke
